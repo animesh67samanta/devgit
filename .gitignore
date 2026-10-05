@@ -29,6 +29,7 @@ Thumbs.db
 .vscode/
 *.swp
 *.swo
-
+devgit.db
+*.db
 # Scratch / initial test directories
 /hello_step
