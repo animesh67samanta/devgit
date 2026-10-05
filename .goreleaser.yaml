@@ -1,0 +1,58 @@
+# GoReleaser configuration for DevGit (v2)
+version: 2
+
+project_name: devgit
+
+release:
+  github:
+    owner: devgit
+    name: devgit
+
+before:
+  hooks:
+    - go mod tidy
+
+builds:
+  - id: devgit
+    binary: devgit
+    main: .
+    env:
+      - CGO_ENABLED=0
+    goos:
+      - darwin
+      - linux
+      - windows
+    goarch:
+      - amd64
+      - arm64
+    ldflags:
+      - -s -w
+      - -X devgit/internal/version.Version={{.Version}}
+      - -X devgit/internal/version.Commit={{.ShortCommit}}
+      - -X devgit/internal/version.Date={{.Date}}
+
+archives:
+  - id: devgit-archive
+    name_template: "{{ .ProjectName }}_{{ .Version }}_{{ .Os }}_{{ .Arch }}"
+    formats:
+      - tar.gz
+    format_overrides:
+      - goos: windows
+        formats:
+          - zip
+    files:
+      - README.md
+      - LICENSE
+      - CHANGELOG.md
+
+checksum:
+  name_template: "checksums.txt"
+  algorithm: sha256
+
+changelog:
+  sort: asc
+  filters:
+    exclude:
+      - "^docs:"
+      - "^test:"
+      - "^chore:"
