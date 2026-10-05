@@ -1,7 +1,7 @@
 package main
 
 import (
-	"devgit/cmd"
+	"github.com/animesh67samanta/devgit/cmd"
 )
 
 func main() {

@@ -7,7 +7,7 @@ import (
 	"io"
 	"strings"
 
-	"devgit/internal/config"
+	"github.com/animesh67samanta/devgit/internal/config"
 	"github.com/spf13/cobra"
 )
 

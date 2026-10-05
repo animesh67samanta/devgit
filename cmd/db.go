@@ -7,7 +7,7 @@ import (
 	"io"
 	"strings"
 
-	"devgit/internal/database"
+	"github.com/animesh67samanta/devgit/internal/database"
 	"github.com/spf13/cobra"
 )
 

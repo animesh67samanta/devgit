@@ -5,7 +5,7 @@ project_name: devgit
 
 release:
   github:
-    owner: devgit
+    owner: animesh67samanta
     name: devgit
 
 before:
@@ -27,9 +27,9 @@ builds:
       - arm64
     ldflags:
       - -s -w
-      - -X devgit/internal/version.Version={{.Version}}
-      - -X devgit/internal/version.Commit={{.ShortCommit}}
-      - -X devgit/internal/version.Date={{.Date}}
+      - -X github.com/animesh67samanta/devgit/internal/version.Version={{.Version}}
+      - -X github.com/animesh67samanta/devgit/internal/version.Commit={{.ShortCommit}}
+      - -X github.com/animesh67samanta/devgit/internal/version.Date={{.Date}}
 
 archives:
   - id: devgit-archive

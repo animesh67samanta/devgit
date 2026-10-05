@@ -1,6 +1,6 @@
 package tui
 
-import "devgit/internal/git"
+import "github.com/animesh67samanta/devgit/internal/git"
 
 // repoDataMsg contains all fetched Git service data.
 type repoDataMsg struct {

@@ -5,10 +5,10 @@ import (
 	"fmt"
 	"io"
 
-	"devgit/internal/config"
-	"devgit/internal/database"
-	"devgit/internal/git"
-	"devgit/internal/tui"
+	"github.com/animesh67samanta/devgit/internal/config"
+	"github.com/animesh67samanta/devgit/internal/database"
+	"github.com/animesh67samanta/devgit/internal/git"
+	"github.com/animesh67samanta/devgit/internal/tui"
 	tea "github.com/charmbracelet/bubbletea"
 	"github.com/spf13/cobra"
 )

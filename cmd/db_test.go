@@ -9,7 +9,7 @@ import (
 	"testing"
 	"time"
 
-	"devgit/internal/database"
+	"github.com/animesh67samanta/devgit/internal/database"
 )
 
 func TestHistoryCmdEmpty(t *testing.T) {

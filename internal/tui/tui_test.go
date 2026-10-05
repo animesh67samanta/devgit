@@ -7,7 +7,7 @@ import (
 	"strings"
 	"testing"
 
-	"devgit/internal/git"
+	"github.com/animesh67samanta/devgit/internal/git"
 	tea "github.com/charmbracelet/bubbletea"
 )
 

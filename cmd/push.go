@@ -8,8 +8,8 @@ import (
 	"io"
 	"strings"
 
-	"devgit/internal/config"
-	"devgit/internal/git"
+	"github.com/animesh67samanta/devgit/internal/config"
+	"github.com/animesh67samanta/devgit/internal/git"
 	"github.com/spf13/cobra"
 )
 

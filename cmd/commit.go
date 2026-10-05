@@ -9,7 +9,7 @@ import (
 	"strconv"
 	"strings"
 
-	"devgit/internal/git"
+	"github.com/animesh67samanta/devgit/internal/git"
 	"github.com/spf13/cobra"
 )
 

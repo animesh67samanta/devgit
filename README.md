@@ -58,7 +58,7 @@ DevGit is designed not to replace Git, but to provide a safer, easier, and more 
 
 ### Option A — Prebuilt Binaries (GitHub Releases)
 
-Download precompiled binaries directly from [GitHub Releases](https://github.com/animesh/devgit/releases/latest).
+Download precompiled binaries directly from [GitHub Releases](https://github.com/animesh67samanta/devgit/releases/latest).
 
 | Operating System | Architecture | Archive |
 | :--- | :--- | :--- |
@@ -76,8 +76,8 @@ Every release includes a `checksums.txt` file containing SHA256 hashes of all re
 On macOS and Linux:
 ```bash
 # Download archive and checksums
-curl -sLO https://github.com/animesh/devgit/releases/download/v1.0.0/devgit_1.0.0_darwin_arm64.tar.gz
-curl -sLO https://github.com/animesh/devgit/releases/download/v1.0.0/checksums.txt
+curl -sLO https://github.com/animesh67samanta/devgit/releases/download/v1.0.0/devgit_1.0.0_darwin_arm64.tar.gz
+curl -sLO https://github.com/animesh67samanta/devgit/releases/download/v1.0.0/checksums.txt
 
 # Verify checksum
 shasum -a 256 -c checksums.txt --ignore-missing
@@ -98,13 +98,13 @@ Get-FileHash .\devgit_1.0.0_windows_amd64.zip -Algorithm SHA256
 If you have Go installed, install directly into your `$GOPATH/bin`:
 
 ```bash
-go install devgit@latest
+go install github.com/animesh67samanta/devgit@latest
 ```
 
 Or build from source:
 
 ```bash
-git clone https://github.com/animesh/devgit.git
+git clone https://github.com/animesh67samanta/devgit.git
 cd devgit
 go build -o devgit .
 ```
@@ -116,7 +116,7 @@ go build -o devgit .
 Homebrew distribution is planned via a custom tap:
 ```bash
 # Future roadmap:
-brew install animesh/tap/devgit
+brew install animesh67samanta/tap/devgit
 ```
 *(Package manager formulas will be published alongside formal registry setup).*
 

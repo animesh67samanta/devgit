@@ -7,8 +7,8 @@ import (
 	"os"
 	"time"
 
-	"devgit/internal/database"
-	"devgit/internal/git"
+	"github.com/animesh67samanta/devgit/internal/database"
+	"github.com/animesh67samanta/devgit/internal/git"
 	"github.com/spf13/cobra"
 )
 

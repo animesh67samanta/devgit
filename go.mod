@@ -1,4 +1,4 @@
-module devgit
+module github.com/animesh67samanta/devgit
 
 go 1.27.1
 

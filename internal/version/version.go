@@ -8,15 +8,15 @@ import (
 
 var (
 	// Version is the current semantic version of DevGit.
-	// In release builds, this is injected via -ldflags "-X devgit/internal/version.Version=...".
+	// In release builds, this is injected via -ldflags "-X github.com/animesh67samanta/devgit/internal/version.Version=...".
 	Version = "1.0.0"
 
 	// Commit is the git commit SHA at build time.
-	// In release builds, this is injected via -ldflags "-X devgit/internal/version.Commit=...".
+	// In release builds, this is injected via -ldflags "-X github.com/animesh67samanta/devgit/internal/version.Commit=...".
 	Commit = "unknown"
 
 	// Date is the RFC3339 or ISO-8601 build timestamp.
-	// In release builds, this is injected via -ldflags "-X devgit/internal/version.Date=...".
+	// In release builds, this is injected via -ldflags "-X github.com/animesh67samanta/devgit/internal/version.Date=...".
 	Date = "unknown"
 )
 

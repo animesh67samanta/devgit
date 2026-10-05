@@ -4,7 +4,7 @@ import (
 	"os"
 	"time"
 
-	"devgit/internal/version"
+	"github.com/animesh67samanta/devgit/internal/version"
 	"github.com/spf13/cobra"
 )
 

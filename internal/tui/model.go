@@ -7,9 +7,9 @@ import (
 	"strings"
 	"time"
 
-	"devgit/internal/config"
-	"devgit/internal/database"
-	"devgit/internal/git"
+	"github.com/animesh67samanta/devgit/internal/config"
+	"github.com/animesh67samanta/devgit/internal/database"
+	"github.com/animesh67samanta/devgit/internal/git"
 	"github.com/charmbracelet/bubbles/key"
 	tea "github.com/charmbracelet/bubbletea"
 	"github.com/charmbracelet/lipgloss"

@@ -5,7 +5,7 @@ import (
 	"strings"
 	"testing"
 
-	"devgit/internal/version"
+	"github.com/animesh67samanta/devgit/internal/version"
 )
 
 func TestVersionCmdOutput(t *testing.T) {
