@@ -7,10 +7,30 @@ import (
 	"os"
 	"path/filepath"
 	"strings"
+	"sync"
 	"time"
 
 	_ "modernc.org/sqlite"
 )
+
+var (
+	clockMu   sync.Mutex
+	lastClock time.Time
+)
+
+// nowUTC returns current UTC time, guaranteed to be strictly monotonically increasing
+// across rapid consecutive calls even on operating systems with low timer resolution (e.g. Windows).
+func nowUTC() time.Time {
+	clockMu.Lock()
+	defer clockMu.Unlock()
+
+	now := time.Now().UTC()
+	if !now.After(lastClock) {
+		now = lastClock.Add(time.Microsecond)
+	}
+	lastClock = now
+	return now
+}
 
 // DB wraps an underlying SQLite database connection and provides high-level
 // operations for DevGit metadata storage.

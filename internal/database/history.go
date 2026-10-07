@@ -38,7 +38,7 @@ func (d *DB) RecordCommand(ctx context.Context, entry HistoryEntry) (*HistoryEnt
 	}
 
 	if entry.ExecutedAt.IsZero() {
-		entry.ExecutedAt = time.Now().UTC()
+		entry.ExecutedAt = nowUTC()
 	}
 
 	query := `INSERT INTO command_history (repository_id, command, success, executed_at, duration_ms)

@@ -26,7 +26,7 @@ func (d *DB) GetOrCreateRepository(ctx context.Context, path string) (*Repositor
 	}
 
 	cleanPath := filepath.Clean(path)
-	now := time.Now().UTC()
+	now := nowUTC()
 
 	// Try atomic upsert with RETURNING
 	query := `INSERT INTO repositories (path, last_used_at, created_at)
@@ -85,7 +85,7 @@ func (d *DB) GetRepositoryByPath(ctx context.Context, path string) (*Repository,
 // TouchRepository updates the last_used_at timestamp of a repository.
 func (d *DB) TouchRepository(ctx context.Context, path string) error {
 	cleanPath := filepath.Clean(path)
-	now := time.Now().UTC()
+	now := nowUTC()
 
 	query := `UPDATE repositories SET last_used_at = ? WHERE path = ?;`
 	res, err := d.sqlDB.ExecContext(ctx, query, now, cleanPath)

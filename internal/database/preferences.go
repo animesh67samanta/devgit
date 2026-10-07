@@ -44,7 +44,7 @@ func (d *DB) SetPreference(ctx context.Context, key, value string) error {
 		return fmt.Errorf("preference key cannot be empty")
 	}
 
-	now := time.Now().UTC()
+	now := nowUTC()
 	query := `INSERT INTO preferences (key, value, updated_at)
 		VALUES (?, ?, ?)
 		ON CONFLICT(key) DO UPDATE SET value = excluded.value, updated_at = excluded.updated_at;`

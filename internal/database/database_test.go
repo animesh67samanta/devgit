@@ -6,7 +6,6 @@ import (
 	"path/filepath"
 	"strings"
 	"testing"
-	"time"
 )
 
 func TestOpenAndMigrations(t *testing.T) {
@@ -90,7 +89,6 @@ func TestRepositories(t *testing.T) {
 	}
 
 	// 2. Duplicate repo path updates last_used_at and preserves ID
-	time.Sleep(25 * time.Millisecond)
 	repo1Dup, err := db.GetOrCreateRepository(ctx, path1)
 	if err != nil {
 		t.Fatalf("failed to get existing repo1: %v", err)
@@ -98,12 +96,11 @@ func TestRepositories(t *testing.T) {
 	if repo1Dup.ID != repo1.ID {
 		t.Errorf("expected same ID %d, got: %d", repo1.ID, repo1Dup.ID)
 	}
-	if !repo1Dup.LastUsedAt.After(repo1.LastUsedAt) && !repo1Dup.LastUsedAt.Equal(repo1.LastUsedAt) {
-		t.Errorf("expected last_used_at to be updated")
+	if !repo1Dup.LastUsedAt.After(repo1.LastUsedAt) {
+		t.Errorf("expected last_used_at to be updated strictly after previous: %v vs %v", repo1Dup.LastUsedAt, repo1.LastUsedAt)
 	}
 
 	// 3. Create second repo
-	time.Sleep(25 * time.Millisecond)
 	path2 := filepath.FromSlash("/path/to/project2")
 	repo2, err := db.GetOrCreateRepository(ctx, path2)
 	if err != nil {
