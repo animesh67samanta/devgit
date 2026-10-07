@@ -21,6 +21,7 @@ func setupTestRepo(t *testing.T) (string, *git.Client) {
 	runGit(t, dir, "init", "-b", "main")
 	runGit(t, dir, "config", "user.name", "Test User")
 	runGit(t, dir, "config", "user.email", "test@example.com")
+	runGit(t, dir, "config", "core.autocrlf", "false")
 
 	f := filepath.Join(dir, "README.md")
 	_ = os.WriteFile(f, []byte("# Hello\n"), 0644)

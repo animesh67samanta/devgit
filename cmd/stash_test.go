@@ -114,7 +114,7 @@ func TestStashSaveCmd(t *testing.T) {
 
 	// Verify working tree still modified
 	content, _ := os.ReadFile(f)
-	if string(content) != "modified\n" {
+	if strings.TrimRight(string(content), "\r\n") != "modified" {
 		t.Errorf("expected file to remain modified, got: %s", string(content))
 	}
 
@@ -182,7 +182,7 @@ func TestStashPopCmd(t *testing.T) {
 
 	// Verify content restored and stash removed
 	content, _ := os.ReadFile(f)
-	if string(content) != "stashed work\n" {
+	if strings.TrimRight(string(content), "\r\n") != "stashed work" {
 		t.Errorf("expected restored content, got: %s", string(content))
 	}
 

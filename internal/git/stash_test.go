@@ -148,7 +148,7 @@ func TestStashApply(t *testing.T) {
 
 	// Verify content restored
 	content, _ := os.ReadFile(f)
-	if string(content) != "stashed work\n" {
+	if strings.TrimRight(string(content), "\r\n") != "stashed work" {
 		t.Errorf("expected restored content, got: %s", string(content))
 	}
 
@@ -182,7 +182,7 @@ func TestStashPop(t *testing.T) {
 
 	// Verify content restored
 	content, _ := os.ReadFile(f)
-	if string(content) != "stashed work\n" {
+	if strings.TrimRight(string(content), "\r\n") != "stashed work" {
 		t.Errorf("expected restored content, got: %s", string(content))
 	}
 

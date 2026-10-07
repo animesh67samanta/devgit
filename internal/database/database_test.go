@@ -80,7 +80,7 @@ func TestRepositories(t *testing.T) {
 	defer db.Close()
 
 	// 1. Create repo
-	path1 := "/path/to/project1"
+	path1 := filepath.FromSlash("/path/to/project1")
 	repo1, err := db.GetOrCreateRepository(ctx, path1)
 	if err != nil {
 		t.Fatalf("failed to create repo1: %v", err)
@@ -90,7 +90,7 @@ func TestRepositories(t *testing.T) {
 	}
 
 	// 2. Duplicate repo path updates last_used_at and preserves ID
-	time.Sleep(10 * time.Millisecond)
+	time.Sleep(25 * time.Millisecond)
 	repo1Dup, err := db.GetOrCreateRepository(ctx, path1)
 	if err != nil {
 		t.Fatalf("failed to get existing repo1: %v", err)
@@ -103,7 +103,8 @@ func TestRepositories(t *testing.T) {
 	}
 
 	// 3. Create second repo
-	path2 := "/path/to/project2"
+	time.Sleep(25 * time.Millisecond)
+	path2 := filepath.FromSlash("/path/to/project2")
 	repo2, err := db.GetOrCreateRepository(ctx, path2)
 	if err != nil {
 		t.Fatalf("failed to create repo2: %v", err)

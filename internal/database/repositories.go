@@ -110,7 +110,7 @@ func (d *DB) ListRecentRepositories(ctx context.Context, limit int) ([]Repositor
 
 	query := `SELECT id, path, last_used_at, created_at
 		FROM repositories
-		ORDER BY last_used_at DESC
+		ORDER BY last_used_at DESC, id DESC
 		LIMIT ?;`
 
 	rows, err := d.sqlDB.QueryContext(ctx, query, limit)

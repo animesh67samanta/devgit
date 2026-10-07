@@ -32,7 +32,11 @@ func (c *Client) Root(ctx context.Context) (string, error) {
 	if err != nil {
 		return "", err
 	}
-	return root, nil
+	clean := filepath.Clean(filepath.FromSlash(root))
+	if realDir, err := filepath.EvalSymlinks(clean); err == nil {
+		clean = realDir
+	}
+	return clean, nil
 }
 
 // CurrentBranch returns the name of the active branch, or describes detached HEAD state.

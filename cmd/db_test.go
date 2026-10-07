@@ -132,7 +132,8 @@ func TestDBReposCmd(t *testing.T) {
 
 	// Seed repo
 	db, _ := database.Open(dbPath)
-	_, _ = db.GetOrCreateRepository(ctx, "/path/repo-alpha")
+	repoPath := filepath.FromSlash("/path/repo-alpha")
+	_, _ = db.GetOrCreateRepository(ctx, repoPath)
 	db.Close()
 
 	outBuf := new(bytes.Buffer)
@@ -147,8 +148,8 @@ func TestDBReposCmd(t *testing.T) {
 	if !strings.Contains(out, "Recent Repositories") {
 		t.Errorf("expected header, got: %s", out)
 	}
-	if !strings.Contains(out, "/path/repo-alpha") {
-		t.Errorf("expected repo path, got: %s", out)
+	if !strings.Contains(out, repoPath) {
+		t.Errorf("expected repo path %q, got: %s", repoPath, out)
 	}
 }
 

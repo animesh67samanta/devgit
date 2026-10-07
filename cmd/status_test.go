@@ -20,6 +20,7 @@ func setupTestGitRepo(t *testing.T) string {
 	execGit(t, dir, "init", "-b", "main")
 	execGit(t, dir, "config", "user.name", "Test User")
 	execGit(t, dir, "config", "user.email", "test@example.com")
+	execGit(t, dir, "config", "core.autocrlf", "false")
 
 	return dir
 }
@@ -65,7 +66,7 @@ func TestStatusCmdInsideRepoWithChanges(t *testing.T) {
 	}
 
 	out := outBuf.String()
-	if !strings.Contains(out, "Repository: "+dir) {
+	if !strings.Contains(out, "Repository: "+dir) && !strings.Contains(filepath.ToSlash(out), "Repository: "+filepath.ToSlash(dir)) {
 		t.Errorf("expected repository root %q, got: %s", dir, out)
 	}
 	if !strings.Contains(out, "Branch: main") {

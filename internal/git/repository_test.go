@@ -20,6 +20,7 @@ func setupTestRepo(t *testing.T) (string, *Client) {
 	runGit(t, dir, "init", "-b", "main")
 	runGit(t, dir, "config", "user.name", "Test User")
 	runGit(t, dir, "config", "user.email", "test@example.com")
+	runGit(t, dir, "config", "core.autocrlf", "false")
 
 	client, err := NewClient(dir)
 	if err != nil {
@@ -57,7 +58,7 @@ func TestValidRepository(t *testing.T) {
 	if err != nil {
 		t.Fatalf("expected no error from Root, got: %v", err)
 	}
-	if root != dir {
+	if filepath.Clean(root) != filepath.Clean(dir) {
 		t.Errorf("expected root %q, got %q", dir, root)
 	}
 }
