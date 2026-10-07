@@ -426,7 +426,6 @@ Pushing a `v*` tag triggers `.github/workflows/release.yml`, which:
 
 ---
 
----
 
 ## License
 
