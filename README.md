@@ -426,23 +426,6 @@ Pushing a `v*` tag triggers `.github/workflows/release.yml`, which:
 
 ---
 
-## Project Roadmap
-
-```text
-Phase 1  — Foundation              ✅
-Phase 2  — Git Foundation          ✅
-Phase 3  — Diff & Log              ✅
-Phase 4  — Commit Workflow         ✅
-Phase 5  — Push & Pull             ✅
-Phase 6  — Branch Management       ✅
-Phase 7  — Stash Management        ✅
-Phase 8  — Bubble Tea TUI          ✅
-Phase 9  — Configuration           ✅
-Phase 10 — SQLite                  ✅
-Phase 11 — AI Assistant            ⏭ Skipped
-Phase 12 — Release & Distribution  ✅
-```
-
 ---
 
 ## License
